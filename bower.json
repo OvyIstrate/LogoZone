@@ -1,0 +1,22 @@
+{
+  "name": "logozone",
+  "description": "The awesome logzone application",
+  "main": "app.js",
+  "authors": [
+    "Ovidiu Istrate",
+    "Florin Baroga"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/OvyIstrate/LogoZone",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5"
+  }
+}
