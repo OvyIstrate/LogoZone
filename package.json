@@ -1,0 +1,23 @@
+{
+  "name": "logozone",
+  "version": "1.0.0",
+  "description": "The awesome logzone application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OvyIstrate/LogoZone.git"
+  },
+  "author": "Ovidiu Istrate, Florin Baroga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OvyIstrate/LogoZone/issues"
+  },
+  "homepage": "https://github.com/OvyIstrate/LogoZone#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
