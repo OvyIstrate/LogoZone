@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
   <head>
     <meta charset="utf-8">
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/hover/css/hover.css" />
     <!-- endbower -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/css/style.css">
@@ -11,15 +12,32 @@
     <title></title>
   </head>
   <body>
-    Hello There, betz-as
+    <header>
+      <h2 class="page-header">LogoZone Header</h2>
+    </header>
+    <div class="container">
+      <logo-element></logo-element>
+      <logo-element></logo-element>
+      <logo-element></logo-element>
+      <logo-element></logo-element>
+    </div>
+
+    <footer class="footer">
+      <h2 class="header"> LogoZone Footer</h2>
+    </footer>
 
     <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/lib/angular/angular.js"></script>
     <!-- endbower -->
     <!-- inject:js -->
-    <script src="/js/main.js"></script>
+    <script src="/js/appConfig.js"></script>
+    <script src="/js/controllers/testController.js"></script>
+    <script src="/js/directives/logoElement.js"></script>
     <!-- endinject -->
   </body>
 </html>

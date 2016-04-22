@@ -17,10 +17,11 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "angular": "^1.5.5"
+    "angular": "^1.5.5",
+    "hover": "Hover#^2.0.2"
   },
-  "overrides":{
-    "bootstrap":{
+  "overrides": {
+    "bootstrap": {
       "main": [
         "dist/js/bootstrap.js",
         "dist/css/bootstrap.min.css",

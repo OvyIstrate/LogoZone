@@ -1,0 +1,12 @@
+html, body {
+  height:100%;
+}
+.container  {
+  height: 100%;
+}
+.logo-size {
+  display:inline-block;
+  margin:3px;
+  height: 100px;
+  width: 200px;
+}
