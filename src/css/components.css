@@ -1,0 +1,634 @@
+﻿#toast-container {
+    margin-top: 112px;
+}
+
+#toast-container > .toast-info {
+    background-color: rgb(51, 51, 51);
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.4);
+}
+
+.textvalidation {
+    border: 1px solid #ff0000;
+}
+
+.highlight-header,
+.highlight-area {
+    background: #ffc107;
+    color: rgba(255,255,255,.92);
+    font-variant: small-caps;
+    padding: 8px 16px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 2px;
+    margin: 3px 0;
+}
+
+.highlight-area {
+    border: 1px solid #FFB300;
+    border-radius: 8px;
+    font-variant: normal;
+    margin: 0 0 10px 0;
+}
+
+.highlight-area ul {
+    font-weight: 400;
+    margin-bottom: 0;
+    padding-left: 18px;
+}
+
+.highlight-area.info  {
+    padding-left: 54px;
+    position: relative;
+}
+
+.highlight-area.info .fa-stack {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+}
+
+.level-title {
+    margin-top: 0;
+}
+
+pre {
+    border: 1px solid #ccc;
+    border-width: 0;
+    border-radius: 0;
+    background: transparent none repeat scroll 0% 0%;
+    font-family: "Roboto";
+    padding: 8px;
+    border-style: solid;
+    line-height: 20px;
+    color: rgba(0,0,0,.92);
+    border-color: #ccc;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    display: block;
+    margin: 1em 0;
+}
+
+pre.border-right {
+    border-width: 0 1px 0 0;
+}
+
+.review td {
+    vertical-align: top;
+}
+
+.review pre {
+    margin: -4px;
+    transition: 0.2s all ease;
+    min-height: 108px;
+    padding: 12px;
+    border-width: 0 0 0 1px;
+}
+
+.review .label.name {
+    font-size: 14px;
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 500;
+    color: rgba(0,0,0,.67);
+    display: inline-block;
+    margin-top: 7px;
+    border-radius: 2px 2px 0 0;
+    background: transparent;
+}
+
+.review textarea {
+    border-width: 0 0 0 1px;
+    margin: 0 0 -1px -4px;
+    min-height: 100px;
+    padding: 7px 8px 7px 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.author {
+    text-align: center;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.list-group-item {
+    color: black;
+}
+
+.link {
+    color: #009688;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 13px;
+    height: auto;
+    line-height: 16px;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+    font-weight: 500;
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link:hover,
+.link:focus {
+    color: #009688;
+    text-decoration: none;
+    background: rgba(158,158,158,.17);
+}
+
+.link[disabled],
+.link[disabled]:hover,
+.link[disabled]:focus {
+    color: rgba(0,0,0,.3);
+    background: transparent;
+}
+
+.link.radio-inline {
+    line-height: normal;
+    padding: 8px 12px 8px 28px;
+}
+
+.link label {
+    cursor: pointer;
+}
+
+.link label {
+    line-height: normal;
+    margin: 0;
+}
+
+.gray-select {
+    color: gray;
+    background-color: gray;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+textarea {
+    line-height: 32px;
+    text-indent: 8px;
+    display: inline-block;
+    font-family: "Roboto";
+    font-weight: 300;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+    margin: 0px 8px 8px 0px;
+    font-size: 13px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 360px;
+    color: #333;
+}
+
+input.form-control {
+    text-indent: initial;
+}
+
+.input-group input {
+    margin-right: 0;
+    max-width: none;
+}
+
+.input-group .input-group-btn button {
+    border: 1px solid transparent;
+    padding: 6px 12px;
+}
+
+.text-area-feed {
+    width: 100%;
+    max-width: 100%;
+    border: 1px;
+}
+
+textarea {
+    text-indent: 0;
+    resize: vertical;
+    line-height: 20px;
+    padding: 8px;
+}
+
+textarea:first-child:last-child {
+    margin: 0;
+}
+
+.btn {
+    color: rgba(255, 255, 255, 0.87) !important;
+    padding: 8px 32px;
+    border-radius: 2px;
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    text-transform: none;
+    text-shadow: none;
+    height: auto;
+    border: none;
+    font-size: 14px;
+    background: #009688 !important;
+    transform: translate3d(0px, 0px, 0px);
+    text-decoration: none;
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s, opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    font-family: "Roboto" !important;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+}
+
+.btn[disabled] {
+    cursor: default;
+}
+
+.btn:focus,
+.btn:active,
+.btn:active:focus,
+.btn:hover:not([disabled]) {
+    transform: translate3d(0px, -1px, 0px);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.admin-area h2 {
+    margin: 10px 0;
+}
+
+.content-holder {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 8px;
+}
+
+.content-holder .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.not-applied {
+    font-style: italic;
+}
+
+.clickable:hover {
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+.error label {
+    font-weight: 400;
+    color: #DD2C00;
+    text-transform: none;
+    font-size: 13px;
+}
+
+.success label {
+    font-weight: 400;
+    color: #009688;
+}
+
+.level-status {
+    position: relative;
+    cursor: pointer;
+}
+
+.people .label:before,
+.core-value-icon:before,
+.level-status:before  {
+    content: "Current period coach";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    white-space: nowrap;
+    display: block;
+    background: #222;
+    color: rgba(255,255,255,.94);
+    transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    display: none;
+    text-indent: 0;
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 2px 8px;
+}
+
+.people .label:after,
+.core-value-icon:after,
+.level-status:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0;
+    display: none;
+    width: 0;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    border-top: 8px solid #222;
+    border-right: 8px solid transparent;
+    top: -6px;
+    left: 10px;
+}
+
+.level-status:before {
+    top: -24px;
+}
+
+.core-value-icon:before {
+    line-height: 15px;
+}
+
+
+.core-value-icon:after {
+    top: -11px;
+}
+
+.people .label:hover:before,
+.people .label:hover:after,
+.core-value-icon:hover:before,
+.core-value-icon:hover:after,
+.level-status:hover:before,
+.level-status:hover:after {
+    display: block;
+}
+
+.core-value-icon {
+    position: relative;
+}
+
+.core-value-icon span {
+    color: #ccc;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.core-value-icon .Quality:before,
+.core-value-icon .Communication:before,
+.core-value-icon .Fun:before,
+.core-value-icon .Learning:before,
+.core-value-icon .Leadership:before {
+    font-family: "FontAwesome";
+    font-size: 18px;
+    line-height: 24px;
+}
+.core-value-icon .Quality:before {
+    content: '\f201';
+}
+
+.core-value-icon .Communication:before {
+    content: '\f1d7';
+}
+
+.core-value-icon .Fun:before {
+    content: '\f135';
+}
+
+.core-value-icon .Learning:before {
+    content: '\f02d';
+}
+
+.core-value-icon .Leadership:before {
+    content: '\f0c0';
+}
+
+.core-value-icon.checked span,
+.goal-area .core-value-icon.checked span{
+    color: #ff7043;
+}
+
+.core-value-icon.Quality:before {
+    content: "Top Notch Quality";
+}
+
+.core-value-icon.Communication:before {
+    content: "Open & Strong Communication";
+}
+
+.core-value-icon.Leadership:before {
+    content: "A Team of Leaders";
+}
+
+.core-value-icon.Learning:before {
+    content: "Continuous Learning & Growth";
+}
+
+.core-value-icon.Fun:before {
+    content: "Fun & Family Spirit";
+}
+
+.pending,
+.progress-goal {
+    color: #2196F3;
+}
+.approved,
+.complete-goal {
+    color: #4CAF50;
+}
+
+h4.complete-goal {
+    cursor: pointer;
+}
+
+h4.complete-goal .fa {
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+.denied,
+.open-goal {
+    color: #FF9800;
+}
+
+.nope,
+.blocked-goal  {
+    color: #b0e0e6;
+}
+
+.new-goal {
+    color: #f44336;
+}
+
+.pending:before {
+   content: "Applied and evaluation is in progress";
+}
+
+.approved:before {
+    content: "Applied and next level was approved";
+}
+
+.denied:before {
+    content: "Applied and next level was not approved at this time";
+}
+.nope:before {
+    content: "Did not apply for next level";
+}
+
+.link.stealth,
+.link.stealth:hover {
+    color: rgba(0,0,0,.67);
+}
+
+.link span + span {
+    margin-left: 4px;
+}
+
+.link span,
+.link input[type="checkbox"] {
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.link input[type="checkbox"] {
+    margin: 3px 4px 0 0;
+}
+
+.link + .btn {
+    margin-left: 8px;
+}
+
+.description {
+    width: 100%;
+}
+
+[id*="conclusion"] .description {
+    border: 1px solid #ddd;
+}
+
+[id*="conclusion"] .description pre {
+    border: none;
+}
+
+.description textarea,
+.description input {
+    width: 100%;
+    height: 100px;
+    max-width: 100%;
+}
+
+.description.noComment {
+    background-color: #EBEBE4;
+}
+
+.reviewable.description pre {
+    border: 1px;
+}
+
+.reviewable {
+    border-top: 2px solid #009688;
+    background: #f5f5f5;
+}
+
+.reviewable pre {
+    border-width: 0;
+    padding: 0;
+}
+
+.reviewable td {
+    padding-bottom: 0;
+}
+
+.actions {
+    width: 90px;
+}
+
+.actions button {
+    width: 75px;
+}
+
+.flipped-x {
+    transform: scale(-1,1);
+}
+
+label {
+    color: #444;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 32px;
+    text-transform: uppercase;
+}
+
+.label + label {
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.label {
+    color: rgba(255,255,255,.92);
+}
+
+.label.label-none,
+.label.label-worksheet{
+    background: #b0e0e6;
+    color: rgba(255,255,255,1);
+}
+
+.label.label-worksheet {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.label.core-value,
+.people .label {
+    margin-right: 5px;
+    font-weight: 400;
+    border-radius: 2px;
+    padding: 0 4px;
+    display: inline-block;
+    cursor: default;
+    line-height: 20px;
+    text-transform: uppercase;
+    position: relative;
+    height: 20px;
+    font-size: 11px;
+}
+
+.label.label-info.core-value {
+    background: #B0BEC5;
+}
+
+.label.label-warning {
+    background: #FFC107;
+    color: rgba(255,255,255,1);
+}
+
+.people .label.label-success:before {
+    content: "Review Sent";
+}
+
+.people .label.label-warning:before {
+    content: "Pending Review";
+}
+
+.text-muted {
+    color: rgba(255,255,255,.67);
+}
+
+.section-title {
+    color: rgba(0,0,0,.67);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.scheduler-border {
+    background: #fff;
+    border: 1px solid #ddd !important;
+    padding: 8px;
+}
+
+.next-level-decision {
+    margin-top: 10px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked::before,
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked::after {
+    display: none;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked:hover::before, 
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked:hover::after {
+    display: block;
+}

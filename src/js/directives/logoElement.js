@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -6,12 +6,14 @@
         .directive('logoElement', logoElement);
 
     /* @ngInject */
-    function logoElement() {
+    logoElement.$inject = ['$mdDialog', '$mdMedia'];
+
+    function logoElement($mdDialog, $mdMedia) {
+
         var logoElement = {
             restrict: 'E',
             templateUrl: 'logoElement.html',
-            scope: {
-            },
+            scope: {},
             link: linkFunc,
             controller: logoElementCtrl,
             controllerAs: 'vm',
@@ -20,25 +22,29 @@
 
         return logoElement;
 
-        function linkFunc(scope, el, attr, ctrl) {
-
-        }
+        function linkFunc(scope, el, attr, ctrl) {}
     }
 
-    // logoElementCtrl.$inject = [''];
+    logoElementCtrl.$inject = ['$mdDialog', '$mdMedia'];
 
     /* @ngInject */
-    function logoElementCtrl() {
+    function logoElementCtrl($mdDialog, $mdMedia) {
         var vm = this;
-        vm.customer = {
-          name: 'Ovi',
-          activity: 'Development'
-        };
 
-        activate();
+        vm.setLogo = function (ev) {
+            var confirm = $mdDialog.prompt()
+                .title("Test")
+                .textContent("Test Content")
+                .placeholder("Image")
+                .targetEvent(ev)
+                .ok('Ok')
+                .cancel('Cancel')
 
-        function activate() {
-
+            $mdDialog.show(confirm).then(function (result) {
+                vm.status = 'You decided to name your dog ' + result + '.';
+            }, function () {
+                vm.status = 'You didn\'t name your dog.';
+            });
         }
     }
 })();

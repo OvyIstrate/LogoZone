@@ -1,0 +1,252 @@
+﻿.header {
+    background: #3F51B5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 48px;
+    z-index: 1500;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.14), 0px 4px 8px rgba(0, 0, 0, 0.28);
+}
+
+.header h1 {
+    font-weight: bold;
+    margin: 0px;
+    padding: 0;
+    color: #fff;
+    border: none;
+    font-variant: small-caps;
+    line-height: 48px;
+    margin-left: 56px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+nav {
+    background: #009688;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    border: none;
+    color: #fff;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
+}
+
+.nav-tabs {
+    border: none;
+    padding-left: 51px;
+}
+
+.nav-tabs li {
+    margin-bottom: 0;
+}
+
+.nav-tabs > li > a:focus,
+.nav-tabs li > a {
+    line-height: 48px;
+    background: transparent none repeat scroll 0% 0%;
+    font-weight: 500;
+    font-size: 13px;
+    border-radius: 0;
+    margin: 0;
+    padding: 0 20px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.2s ease 0s;
+}
+
+.changer {
+    float: left;
+    color: rgba(255,255,255,.67);
+    background: #00796b;
+    text-align: center;
+    width: 200px;
+    position: relative;
+    border: none;
+    cursor: default;
+    height: 48px;
+}
+
+.changer ul {
+    list-style-type: none;
+    background: #009688;
+    width: 200px;
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    display: none;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    z-index: 100;
+    left: 0;
+    font-variant: small-caps;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.changer li a {
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease 0s;
+    color: rgba(255,255,255,.67);
+}
+
+    .changer li a:hover,
+    .changer li.active a {
+        background: rgba(0,0,0,.1);
+        cursor: pointer;
+        color: #fff;
+    }
+
+.changer li.active a {
+    cursor: default;
+}
+
+.changer > div {
+    height: 48px;
+    width: 48px;
+    opacity: 0.67;
+    font-size: 20px;
+    font-weight: 500;
+    background: url(/Content/Images/m_logo.png) center center no-repeat;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    margin-left: 8px;
+    background-size: contain;
+}
+
+.changer:hover > div,
+.changer.open > div {
+    opacity: 1;
+}
+
+.changer.open ul {
+    display: block;
+}
+
+.changer li a .fa-external-link {
+    padding: 2px;
+    float: right;
+    font-size: 16px;
+}
+
+.loginDisplay {
+    padding-top: 6px;
+    height: 42px;
+    width: 36px;
+    right: 12px;
+    top: 0;
+    position: absolute;
+    font-size: 16px;
+}
+
+.loginDisplay .user-menu-toggle {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.loginDisplay .user-menu-toggle:hover {
+    box-shadow: 0 1px 0 rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.2);
+}
+
+.user-flyout {
+    background: #fff;
+    box-shadow: 0 2px 25px rgba(0,0,0,.4);
+    position: absolute;
+    right: 0;
+    padding: 16px;
+    display: none;
+    box-sizing: border-box;
+    min-width: 400px;
+    font-family: Roboto;
+    font-size: 14px;
+    top: 48px;
+    line-height: normal;
+    font-weight: 300;
+    z-index: 101;
+    border-radius: 2px;
+}
+
+.user-flyout img {
+    padding: 0;
+    width: 92px;
+}
+
+.user-flyout .gravatar {
+    position: relative;
+    display: block;
+    border: 4px solid #009688;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    width: 100px;
+    float: left;
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.user-flyout .gravatar:before {
+    content: "\f030";
+    position: absolute;
+    font-family: "FontAwesome";
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    bottom: 0;
+    line-height: 22px;
+    color: rgba(255,255,255,.71);
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.user-flyout .gravatar:hover:before {
+    background: rgba(0,0,0,.7);
+    color: rgba(255,255,255,.9);
+}
+
+.user-flyout::before {
+    content: "";
+    border-color: transparent;
+    border-bottom-color: #fff;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: block;
+    position: absolute;
+    right: 9px;
+    top: -8px;
+    z-index: 1;
+    height: 0;
+    width: 0;
+    color: rgba(0,0,0,.61);
+}
+
+.user-flyout .user-info {
+    padding-top: 12px;
+}
+
+.user-flyout .actions {
+    margin: 16px 0;
+    width: auto;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.user-flyout .sub-actions {
+    clear: both;
+    background: #f5f5f5;
+    border-top: 1px solid #c4c4c4;
+    margin: 16px -16px -16px;
+    border-radius: 0 0 2px 2px;
+    padding: 16px;
+}

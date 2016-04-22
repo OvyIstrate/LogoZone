@@ -18,7 +18,8 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "angular": "^1.5.5",
-    "hover": "Hover#^2.0.2"
+    "hover": "Hover#^2.0.2",
+    "angular-material": "^1.0.7"
   },
   "overrides": {
     "bootstrap": {

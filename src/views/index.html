@@ -5,38 +5,40 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/lib/hover/css/hover.css" />
+    <link rel="stylesheet" href="/lib/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/style.css">
     <!-- endinject -->
     <title></title>
   </head>
-  <body>
+  <body ng-controller="mainCtrl as vm">
     <header>
-      <h2 class="page-header">LogoZone Header</h2>
+      <h2 class="page-header text-center">LogoZone Header</h2>
     </header>
-    <div class="container">
-      <logo-element></logo-element>
-      <logo-element></logo-element>
-      <logo-element></logo-element>
-      <logo-element></logo-element>
+    <div class="container text-center">
+      <logo-element ng-repeat="i in vm.dummyArray"></logo-element>
     </div>
 
-    <footer class="footer">
-      <h2 class="header"> LogoZone Footer</h2>
+    <footer>
+      <h2 class="highlight text-center"> LogoZone Footer</h2>
     </footer>
 
     <!-- bower:js -->
     <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-animate/angular-animate.js"></script>
+    <script src="/lib/angular-aria/angular-aria.js"></script>
+    <script src="/lib/angular-messages/angular-messages.js"></script>
+    <script src="/lib/angular-material/angular-material.js"></script>
     <!-- endbower -->
     <!-- inject:js -->
     <script src="/js/appConfig.js"></script>
-    <script src="/js/controllers/testController.js"></script>
+    <script src="/js/controllers/mainController.js"></script>
     <script src="/js/directives/logoElement.js"></script>
     <!-- endinject -->
   </body>
