@@ -21,6 +21,7 @@
     "express": "^4.13.4"
   },
   "devDependencies": {
+    "bower": "^1.7.9",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.0.0",
     "gulp-jshint": "^2.0.0",

@@ -65,10 +65,30 @@ strong {
     border: 0 !important;
 }
 
-input:-webkit-autofill, 
-textarea:-webkit-autofill, 
+input:-webkit-autofill,
+textarea:-webkit-autofill,
 select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 80%;
+    min-height: 80%;
+    font-size: 80px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {

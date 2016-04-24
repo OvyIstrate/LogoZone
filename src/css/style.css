@@ -10,3 +10,8 @@ html, body {
   height: 130px;
   width: 250px;
 }
+.custom-dialog {
+  max-width: 400px;
+  min-height: 200px;
+  padding: 30px;
+}

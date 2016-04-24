@@ -1,0 +1,42 @@
+<md-dialog aria-label="Mango (Fruit)" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Logo Dialog</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="form-group">
+                    <span class="clickable">
+            <span class="btn btn-primary btn-file">
+                Upload...
+                <input type="file" file-read='vm.fileObject'>
+            </span>
+                    </span>
+                    <span class="row">
+          <h4 ng-if='vm.fileObject'> {{vm.fileObject.name}}</h4>
+          <h4 ng-if='vm.fileObject'> {{vm.fileObject.filePath}}</h4>
+        </span>
+                </div>
+                <div class="form-group">
+                    <button ng-click="vm.testFunction()">Show</button>
+                </div>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="vm.answer(vm.fileObject)">
+                Set
+            </md-button>
+            <md-button ng-click="vm.answer(null)" style="margin-right:20px;">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

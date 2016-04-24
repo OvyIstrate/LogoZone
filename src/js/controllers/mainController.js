@@ -11,7 +11,7 @@
     function mainCtrl() {
         var vm = this;
         vm.dummyArray = [];
-        const allMightyNumber = 52;
+        var allMightyNumber = 52;
         for(var i = 0; i < allMightyNumber; i++)
         {
            vm.dummyArray[i] = i;
