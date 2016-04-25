@@ -30,23 +30,6 @@
     /* @ngInject */
     function logoElementCtrl($mdDialog, $mdMedia) {
         var vm = this;
-
-        // vm.setLogo = function (ev) {
-        //     var confirm = $mdDialog.prompt()
-        //         .title("Test")
-        //         .textContent("Test Content")
-        //         .placeholder("Image")
-        //         .targetEvent(ev)
-        //         .ok('Ok')
-        //         .cancel('Cancel')
-        //
-        //     $mdDialog.show(confirm).then(function (result) {
-        //         vm.status = 'You decided to name your dog ' + result + '.';
-        //         vm.image =
-        //     }, function () {
-        //         vm.status = 'You didn\'t name your dog.';
-        //     });
-        // }
         vm.setLogo = function(ev) {
         $mdDialog.show({
           controller: dialogController,
@@ -57,7 +40,8 @@
           clickOutsideToClose:true,
         })
         .then(function(answer) {
-          vm.imageSrc = answer;
+          if(answer !== undefined)
+          vm.imageSrc = answer.name;
           console.log(vm.imageSrc);
         }, function() {
           vm.status = 'You cancelled the dialog.';
@@ -75,7 +59,9 @@
         $mdDialog.cancel();
       };
       vm.answer = function(answer) {
-        $mdDialog.hide(vm.fileObject);
+        if(answer !== undefined)
+          $mdDialog.hide(answer);
+        vm.error = 'You need to select an Image';
       };
 
       vm.testFunction = function() {

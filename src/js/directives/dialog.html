@@ -12,21 +12,13 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <div class="form-group">
-                    <span class="clickable">
-            <span class="btn btn-primary btn-file">
-                Upload...
-                <input type="file" file-read='vm.fileObject'>
-            </span>
-                    </span>
-                    <span class="row">
-          <h4 ng-if='vm.fileObject'> {{vm.fileObject.name}}</h4>
-          <h4 ng-if='vm.fileObject'> {{vm.fileObject.filePath}}</h4>
-        </span>
+                    <button class="btn btn-file">
+                      Upload...
+                        <input type="file" file-read='vm.fileObject'>
+                    </button>
                 </div>
-                <div class="form-group">
-                    <button ng-click="vm.testFunction()">Show</button>
-                </div>
-
+                <p ng-if='vm.fileObject'> {{vm.fileObject.name}}</p>
+                <p ng-if='vm.error' class="alert alert-danger">{{vm.error}}</p>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
