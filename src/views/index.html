@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html ng-app='app'>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/lib/hover/css/hover.css" />
     <link rel="stylesheet" href="/lib/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/lib/toastr/toastr.css" />
     <!-- endbower -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/css/components.css">
@@ -13,18 +15,24 @@
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/style.css">
     <!-- endinject -->
-    <title></title>
-  </head>
-  <body ng-controller="mainCtrl as vm">
+    <title>LogoZone</title>
+    <ul class="nav nav-pills right-position">
+        <li role="presentation"><a href="#home">Home</a></li>
+        <li role="presentation"><a href="#signIn">Sign in</a></li>
+        <li role="presentation"><a href="#signUp">Sign up</a></li>
+    </ul>
+</head>
+
+<body ng-controller="mainCtrl as vm">
     <header>
-      <h2 class="page-header text-center">LogoZone Header</h2>
+        <h2 class="page-header text-center">LogoZone Header</h2>
     </header>
-    <div class="container text-center">
-      <logo-element ng-repeat="i in vm.dummyArray"></logo-element>
+    <div class="container text-center" ng-view ng-cloak>
+
     </div>
 
     <footer>
-      <h2 class="highlight text-center"> LogoZone Footer</h2>
+        <h2 class="highlight text-center"> LogoZone Footer</h2>
     </footer>
 
     <!-- bower:js -->
@@ -35,12 +43,17 @@
     <script src="/lib/angular-aria/angular-aria.js"></script>
     <script src="/lib/angular-messages/angular-messages.js"></script>
     <script src="/lib/angular-material/angular-material.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
+    <script src="/lib/toastr/toastr.js"></script>
+    <script src="/lib/angular-resource/angular-resource.js"></script>
     <!-- endbower -->
     <!-- inject:js -->
     <script src="/js/appConfig.js"></script>
+    <script src="/js/controllers/authController.js"></script>
     <script src="/js/controllers/mainController.js"></script>
     <script src="/js/directives/fileRead.js"></script>
     <script src="/js/directives/logoElement.js"></script>
     <!-- endinject -->
-  </body>
+</body>
+
 </html>

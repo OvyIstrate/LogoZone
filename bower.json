@@ -20,7 +20,10 @@
     "bootstrap": "^3.3.6",
     "angular": "^1.5.5",
     "hover": "Hover#^2.0.2",
-    "angular-material": "^1.0.7"
+    "angular-material": "^1.0.7",
+    "angular-route": "^1.5.5",
+    "toastr": "^2.1.2",
+    "angular-resource": "^1.5.5"
   },
   "overrides": {
     "bootstrap": {
