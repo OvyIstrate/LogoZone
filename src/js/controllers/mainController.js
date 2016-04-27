@@ -5,11 +5,12 @@
         .module('app')
         .controller('mainCtrl', mainCtrl);
 
-    // mainCtrl.$inject = ['dependencies'];
+    mainCtrl.$inject = [];
 
     /* @ngInject */
     function mainCtrl() {
         var vm = this;
+        // vm.isLogged = authSvc.isLogged;
         vm.dummyArray = [];
         var allMightyNumber = 52;
         for(var i = 0; i < allMightyNumber; i++)

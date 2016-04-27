@@ -10,6 +10,10 @@
     /* @ngInject */
     function authCtrl() {
         var vm = this;
+        vm.signIn = function(username, password)
+        {
+            console.log('To be done for ' + username + ' ' + password);
+        }
 
         activate();
 

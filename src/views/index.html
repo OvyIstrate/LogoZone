@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html ng-app='app'>
-
 <head>
     <meta charset="utf-8">
     <!-- bower:css -->
@@ -16,23 +15,24 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- endinject -->
     <title>LogoZone</title>
-    <ul class="nav nav-pills right-position">
-        <li role="presentation"><a href="#home">Home</a></li>
-        <li role="presentation"><a href="#signIn">Sign in</a></li>
-        <li role="presentation"><a href="#signUp">Sign up</a></li>
-    </ul>
+    <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav right-position">
+          <li role="presentation"><a href="#home">Home</a></li>
+          <li ng-if='!vm.isLogged' role="presentation"><a href="#signIn">Sign in</a></li>
+          <li ng-if='!vm.isLogged'role="presentation"><a href="#signUp">Sign up</a></li>
+      </ul>
+    </nav>
 </head>
 
 <body ng-controller="mainCtrl as vm">
     <header>
-        <h2 class="page-header text-center">LogoZone Header</h2>
+        <h2 class="text-center">LogoZone Header</h2>
     </header>
-    <div class="container text-center" ng-view ng-cloak>
+    <section class="content text-center" ng-view ng-cloak>
+    </section>
 
-    </div>
-
-    <footer>
-        <h2 class="highlight text-center"> LogoZone Footer</h2>
+    <footer class='text-center'>
+        <small>&copy; 2016 LogoZone Inc.</small>
     </footer>
 
     <!-- bower:js -->
@@ -53,6 +53,7 @@
     <script src="/js/controllers/mainController.js"></script>
     <script src="/js/directives/fileRead.js"></script>
     <script src="/js/directives/logoElement.js"></script>
+    <script src="/js/services/authService.js"></script>
     <!-- endinject -->
 </body>
 

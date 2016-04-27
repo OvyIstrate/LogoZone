@@ -41,7 +41,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 
 body {
-    padding: 72px 0 64px 0;
+    padding: 5px 0 64px 0;
     font-family: "Roboto";
     height: auto;
     min-height: 100%;

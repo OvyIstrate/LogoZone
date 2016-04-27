@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
+var jade = require('gulp-jade');
 var nodemon = require('gulp-nodemon');
 var jsFiles = ['*.js', 'src/**/*.js'];
 
@@ -31,7 +32,7 @@ gulp.task('inject', function () {
     return gulp.src('./src/views/*.html')
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, injectOptions))
-        .pipe(gulp.dest('./src/views'));
+        .pipe(gulp.dest('./src/views/'));
 });
 
 gulp.task('serve', ['style', 'inject'],  function(){

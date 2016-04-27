@@ -40,7 +40,7 @@
           clickOutsideToClose:true,
         })
         .then(function(answer) {
-          if(answer !== undefined)
+          if(answer !== null)
           vm.imageSrc = answer.name;
           console.log(vm.imageSrc);
         }, function() {
