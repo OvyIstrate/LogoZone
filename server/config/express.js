@@ -10,5 +10,5 @@ module.exports = function(app, config){
   app.use(express.static('src/js/directives'));
 
   app.set('views', config.rootPath + '/src/views');
-  app.set('view engine', 'jade');
+  app.set('view engine', 'html');
 }
