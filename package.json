@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node --debug app.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,13 @@
   },
   "homepage": "https://github.com/OvyIstrate/LogoZone#readme",
   "dependencies": {
+    "consolidate": "^0.14.1",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
-    "jade": "^1.11.0"
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "body-parser": "^1.15.0",

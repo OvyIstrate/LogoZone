@@ -5,7 +5,7 @@ console.log(rootPath);
 module.exports = {
   development: {
     rootPath: rootPath,
-    db: 'developmentConnectionString',
+    db: 'mongodb://localhost/logozoneDb',
     port: process.env.PORT || 5000
   },
 

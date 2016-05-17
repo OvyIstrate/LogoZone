@@ -5,14 +5,22 @@
         .module('app')
         .controller('authCtrl', authCtrl);
 
-    // authCtrl.$inject = ['dependencies'];
+    authCtrl.$inject = ['$http'];
 
     /* @ngInject */
-    function authCtrl() {
+    function authCtrl($http) {
         var vm = this;
-        vm.signIn = function(username, password)
+        vm.signIn = function(userName, password)
         {
-            console.log('To be done for ' + username + ' ' + password);
+            $http.post('/login', {userName: userName, password:password}).then(function(response){
+              if(response.data.success){
+                console.log('logged in');
+              }
+              else
+                {
+                  console.log('not logged!');
+                }
+            });
         }
 
         activate();
