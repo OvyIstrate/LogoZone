@@ -12,7 +12,7 @@
         var vm = this;
         vm.signIn = function(userName, password)
         {
-            $http.post('/login', {userName: userName, password:password}).then(function(response){
+            $http.post('/login', {userName: userName}).then(function(response){
               if(response.data.success){
                 console.log('logged in');
               }

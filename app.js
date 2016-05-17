@@ -1,7 +1,7 @@
 var express = require('express');
 var passport = require('passport'),
     mongoose = require('mongoose'),
-    LocalStratgy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy;
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -14,22 +14,34 @@ require('./server/config/express')(app, config);
 require('./server/config/mongoose')(config);
 
 var User = mongoose.model('User');
-passport.use(new LocalStratgy(
+console.log('before');
+User.findOne({
+    userName: 'john.doe'
+}).exec(function(err, user) {
+    console.log('From simple query ' + user.firstName);
+});
+// console.log(User.findOne({userName:'john.doe'}));
+console.log('after');
+passport.use(new LocalStrategy(
     function(userName, password, done) {
+        console.log("From passport use: " + userName);
         User.findOne({
             userName: userName
         }).exec(function(err, user) {
             if (user) {
+                console.log("From passport use: " + userName);
                 return done(null, user);
             } else {
+                console.log("From passport use: " + userName);
                 return done(null, false);
             }
-        })
+        });
     }
 ));
 
 passport.serializeUser(function(user, done) {
     if (user) {
+        console.log("from serialize function" + user);
         done(null, user._id);
     }
 });
@@ -39,13 +51,14 @@ passport.deserializeUser(function(id, done) {
         _id: id
     }).exec(function(err, user) {
         if (user) {
+            console.log("from deserialize function" + id);
             return done(null, user)
         } else {
+            console.log("from deserialize function" + id);
             return done(null, false);
         }
     })
 });
-
 
 require('./server/config/routes')(app);
 
