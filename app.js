@@ -14,12 +14,19 @@ require('./server/config/express')(app, config);
 require('./server/config/mongoose')(config);
 
 var User = mongoose.model('User');
+var Message = mongoose.model('Message');
+
 console.log('before');
 User.findOne({
     userName: 'john.doe'
 }).exec(function(err, user) {
     console.log('From simple query ' + user.firstName);
 });
+console.log(User);
+Message.findOne().exec(function(err, msg){
+  var messageFromDb = msg;
+  console.log(msg);
+})
 // console.log(User.findOne({userName:'john.doe'}));
 console.log('after');
 passport.use(new LocalStrategy(
@@ -61,6 +68,10 @@ passport.deserializeUser(function(id, done) {
 });
 
 require('./server/config/routes')(app);
+
+app.get('*', function(req, res){
+  res.render('index', {})
+})
 
 app.listen(config.port, function(err) {
     console.log('listening on ' + config.port);

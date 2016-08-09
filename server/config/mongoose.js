@@ -16,7 +16,13 @@ module.exports = function(config) {
     userName:String
   });
 
+  var messageSchema = mongoose.Schema({
+    message:String
+  });
+
+
   var User = mongoose.model('User', userSchema);
+  var Message = mongoose.model('Message', messageSchema);
 
   User.find({}).exec(function(err, collection){
     if(collection.length === 0)
