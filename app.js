@@ -16,6 +16,7 @@ require('./server/config/mongoose')(config);
 var User = mongoose.model('User');
 var Message = mongoose.model('Message');
 
+//comment added for deployment;
 console.log('before');
 User.findOne({
     userName: 'john.doe'
