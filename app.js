@@ -72,6 +72,6 @@ app.get('*', function(req, res){
   res.render('index', {})
 })
 
-app.listen(config.port || 5000, function(err) {
-    console.log('listening on ' + config.port);
+app.listen(process.env.PORT || 5000, function(err) {
+    console.log('listening on ' + process.env.PORT);
 });
