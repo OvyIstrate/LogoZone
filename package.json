@@ -19,6 +19,7 @@
   "homepage": "https://github.com/OvyIstrate/LogoZone#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "bower": "^1.7.9",
     "consolidate": "^0.14.1",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
@@ -29,14 +30,14 @@
     "gulp-jshint": "^2.0.0",
     "gulp-nodemon": "^2.0.6",
     "jade": "^1.11.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.1.0",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
     "mustache": "^2.2.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "wiredep": "^4.0.0",
-    "jshint-stylish": "^2.1.0",
-    "bower": "^1.7.9"
+    "wiredep": "^4.0.0"
   },
   "engine": {
     "node": "4.4.x",
