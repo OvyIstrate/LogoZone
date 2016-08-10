@@ -8,7 +8,8 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
 var config = require('./server/config/config')[env];
-
+console.log(process.env.PORT)
+console.log(env)
 require('./server/config/express')(app, config);
 
 require('./server/config/mongoose')(config);
@@ -17,7 +18,6 @@ var User = mongoose.model('User');
 var Message = mongoose.model('Message');
 
 //comment added for deployment;
-console.log(process.env.NODE_ENV);
 console.log('before');
 User.findOne({
     userName: 'john.doe'
@@ -50,7 +50,6 @@ passport.use(new LocalStrategy(
 
 passport.serializeUser(function(user, done) {
     if (user) {
-        console.log("from serialize function" + user);
         done(null, user._id);
     }
 });
@@ -60,10 +59,8 @@ passport.deserializeUser(function(id, done) {
         _id: id
     }).exec(function(err, user) {
         if (user) {
-            console.log("from deserialize function" + id);
             return done(null, user)
         } else {
-            console.log("from deserialize function" + id);
             return done(null, false);
         }
     })
