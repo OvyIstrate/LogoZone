@@ -12,6 +12,6 @@ module.exports = {
   production: {
     rootPath: rootPath,
     db:'mongodb://OIstrate:logozoneadmin@ds145395.mlab.com:45395/logozonedb',
-    port: process.env.PORT || 80
+    port: process.env.PORT || 3030
   }
 }
