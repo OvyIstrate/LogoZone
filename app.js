@@ -17,13 +17,14 @@ var User = mongoose.model('User');
 var Message = mongoose.model('Message');
 
 //comment added for deployment;
+console.log(process.env.NODE_ENV);
 console.log('before');
 User.findOne({
     userName: 'john.doe'
 }).exec(function(err, user) {
     console.log('From simple query ' + user.firstName);
 });
-console.log(User);
+console.log(config.db);
 Message.findOne().exec(function(err, msg){
   var messageFromDb = msg;
   console.log(msg);
