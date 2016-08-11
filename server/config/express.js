@@ -11,7 +11,7 @@ module.exports = function(app, config) {
   app.use(express.static(config.rootPath + '/public'));
   app.use(express.static('src'));
   app.use(express.static('src/views/'));
-  app.set('views', config.rootPath + '../src/views/');
+  app.set('views', config.rootPath + '/src/views/');
   app.engine('html', engines.mustache);
   app.set('view engine', 'html');
   app.use(express.static('src/js/directives'));
