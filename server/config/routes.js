@@ -21,7 +21,6 @@ module.exports = function(app) {
                 if (err) {
                     return next(err);
                 }
-
                 res.send({
                     success: true,
                     user: user

@@ -8,8 +8,6 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
 var config = require('./server/config/config')[env];
-console.log(process.env.PORT)
-console.log(env)
 require('./server/config/express')(app, config);
 
 require('./server/config/mongoose')(config);
@@ -38,10 +36,8 @@ passport.use(new LocalStrategy(
             userName: userName
         }).exec(function(err, user) {
             if (user) {
-                console.log("From passport use: " + userName);
                 return done(null, user);
             } else {
-                console.log("From passport use: " + userName);
                 return done(null, false);
             }
         });

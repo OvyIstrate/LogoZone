@@ -20,7 +20,6 @@ module.exports = function(config) {
     message:String
   });
 
-
   var User = mongoose.model('User', userSchema);
   var Message = mongoose.model('Message', messageSchema);
 
