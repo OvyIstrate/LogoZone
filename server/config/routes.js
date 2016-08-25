@@ -1,32 +1,22 @@
-var passport = require('passport');
+var auth = require('./auth');
 
 module.exports = function(app) {
-    app.get('*', function(req, res) {
-        res.render('index');
+
+    app.post('/login', auth.authenticate);
+
+    app.post('/logout', function(req, res){
+      req.logout();
+      res.end();
     });
 
-    app.post('/login', function(req, res, next) {
-        console.log('Inside post SERVER -> ' + req.body)
-        var auth = passport.authenticate('local', function(err, user) {
-            console.log('form authPost ' + user);
-            if (err) {
-                return next(err);
-            }
-            if (!user) {
-                res.send({
-                    success: false
-                });
-            }
-            req.logIn(user, function(err) {
-                if (err) {
-                    return next(err);
-                }
-                res.send({
-                    success: true,
-                    user: user
-                });
-            });
+    app.get('/user', function(req, res){
+      res.send(req.user);
+    })
+
+    app.get('*', function(req, res) {
+      console.log(req.user);
+        res.render('index', {
+          bootstrappedUser: req.user
         });
-        auth(req, res, next);
     });
 }

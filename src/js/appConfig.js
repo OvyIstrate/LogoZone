@@ -1,9 +1,10 @@
 (function() {
     'use strict';
 
-    angular
-        .module('app', ['ngMaterial', 'ngRoute'])
-        .config(routeConfig);
+    var app = angular
+        .module('app', ['ngMaterial', 'ngRoute']);
+
+    app.config(routeConfig);
 
     routeConfig.$inject = ['$routeProvider'];
 
@@ -20,18 +21,37 @@
           controller:'mainCtrl',
           controllerAs:'vm'
         })
-        .when('/signIn', {
-          templateUrl:'signIn.html',
+        .when('/login', {
+          templateUrl:'/account/login.html',
           controller:'authCtrl',
           controllerAs:'vm'
         })
-        .when('/signUp', {
-          templateUrl:'signUp.html',
+        .when('/logout', {
+          templateUrl:'/account/logout.html',
           controller:'authCtrl',
+          controllerAs:'vm'
+        })
+        .when('/register', {
+          templateUrl:'/account/register.html',
+          controller:'registerCtrl',
           controllerAs:'vm'
         })
         .otherwise({
           redirectTo:'/'
         });
     }
+
+    app.run(authConfig)
+
+    authConfig.$inject = ['$rootScope', 'userSvc', '$location'];
+
+    function authConfig($rootScope, userSvc, $location){
+      $rootScope.$on('$routeChangeStart', function(){
+        if(userSvc.getCurrentUser())
+          $location.path('/');
+        else
+          $location.path('/login');
+      });
+    }
+
 })();

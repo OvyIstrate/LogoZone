@@ -15,27 +15,16 @@ require('./server/config/mongoose')(config);
 var User = mongoose.model('User');
 var Message = mongoose.model('Message');
 
-//comment added for deployment;
-console.log('before');
-User.findOne({
-    userName: 'john.doe'
-}).exec(function(err, user) {
-    console.log('From simple query ' + user.firstName);
-});
-console.log(config.db);
-Message.findOne().exec(function(err, msg){
-  var messageFromDb = msg;
-  console.log(msg);
-})
-// console.log(User.findOne({userName:'john.doe'}));
+// console.log(User.findOne({username:'john.doe'}));
 console.log('after');
+
 passport.use(new LocalStrategy(
-    function(userName, password, done) {
-        console.log("From passport use: " + userName);
+    function(username, password, done) {
+        console.log("From passport use: " + username);
         User.findOne({
-            userName: userName
+            username: username
         }).exec(function(err, user) {
-            if (user) {
+            if (user && user.authenticate(password)) {
                 return done(null, user);
             } else {
                 return done(null, false);
@@ -63,10 +52,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 require('./server/config/routes')(app);
-
-app.get('*', function(req, res){
-  res.render('index', {})
-})
 
 app.listen(process.env.PORT || 5000, function(err) {
     console.log('listening on ' + process.env.PORT);
