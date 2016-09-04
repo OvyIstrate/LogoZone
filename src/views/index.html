@@ -1,4 +1,5 @@
 <html ng-app='app'>
+
 <head>
     <meta charset="utf-8">
     <!-- bower:css -->
@@ -17,46 +18,55 @@
 
 </head>
 
-<body>
-  <nav class="navbar navbar-default" ng-controller='navCtrl as vm'>
-    <ul class="nav navbar-nav"  ng-if='vm.isLogged()'>
-      <li role="presentation"><a href="#home">Home</a></li>
-      <li role="presentation"><a href="#about">About</a></li>
-        <li class="dropdown right" role="presentation">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#profile">
-            Welcome {{vm.identity.currentUser.firstname}}, {{vm.identity.currentUser.lastname}}
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="" ng-click='vm.logout()'> Sign Out </a>
-            </li>
-            <li ng-if='vm.identity.currentUser.isAdmin()'>
-              User Admin
-            </li>
-          </ul>
-        </li>
-    </ul>
-  </nav>
+<body ng-controller='navCtrl as vm'>
+    <nav class="navbar navbar-default" ng-if='vm.identity.currentUser'>
+        <ul class="nav navbar-nav">
+            <li role="presentation"><a href="#home">Home</a></li>
+            <li role="presentation"><a href="#about">About</a></li>
 
-  <div id="logoutForm" class="loginDisplay">
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown right" role="presentation">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">
+          Welcome {{vm.identity.currentUser.firstname}}, {{vm.identity.currentUser.lastname}}
+          <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="" ng-click='vm.logout()'> Sign Out </a>
+                    </li>
+                    <li>
+                        <a href="#profile"> Profile </a>
+                    </li>
+                    <li ng-if='vm.identity.currentUser.isAdmin()'>
+                      {{vm.identity.currentUser.isAdmin()}}
+                        <a href="#admin"> User Admin </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="right position-right">
+                <!-- <div id="logoutForm" class="loginDisplay">
                     <img alt="" class="user-menu-toggle" ng-src="http://www.gravatar.com/avatar/{{vm.identity.currentUser.avatarHash}}?s=36" />
                     <div style="display: none;" class="user-flyout">
                         <a class="gravatar" href="https://en.gravatar.com/emails/" target="_blank"><img alt="" src="http://www.gravatar.com/avatar/{{vm.identity.currentUser.avatarHash}}?s=100" /></a>
                         <div class="user-info">
-                            <strong><span>{{vm.identity.currentUser.firstname}}, {{vm.identity.currentUser.lastname}}</span></strong> <br>
+                            <strong><span>{{vm.identity.currentUser.firstname}}, {{vm.identity.currentUser.lastname}}</span></strong>
+                            <br>
                         </div>
                         <div class="sub-actions">
                             <a ng-click="logOut()" class="link clickable pull-right">Sign Out</a>
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+            </li>
+        </ul>
+    </nav>
 
-    <section class="content" ng-view ng-cloak>
+    <section class=" centered" ng-view ng-cloak>
     </section>
 
-    <footer class='text-center' ng-if='vm.identity.isAuthenticated()'>
+    <footer class='text-center' ng-if='vm.identity.currentUser'>
         <small>&copy; 2016 LogoZone Inc.</small>
     </footer>
 
@@ -77,11 +87,14 @@
     <script src="/js/account/authCtrl.js"></script>
     <script src="/js/account/authSvc.js"></script>
     <script src="/js/account/identitySvc.js"></script>
+    <script src="/js/account/registerCtrl.js"></script>
     <script src="/js/account/userSvc.js"></script>
     <script src="/js/common/navCtrl.js"></script>
     <script src="/js/common/notifier.js"></script>
     <script src="/js/directives/fileRead.js"></script>
     <script src="/js/directives/logoElement.js"></script>
+    <script src="/js/internal/adminCtrl.js"></script>
+    <script src="/js/internal/profileCtrl.js"></script>
     <script src="/js/main/mainCtrl.js"></script>
     <!-- endinject -->
 </body>

@@ -7,6 +7,8 @@ angular.module('app')
 
 function identitySvc($window, $http, $q) {
 
+  var callCount = 0;
+
   var currentUser;
   if(!!$window.bootstrappedUser)
     currentUser = !!$window.bootstrappedUser;

@@ -11,27 +11,14 @@
     function navCtrl(identitySvc, notifier, authSvc, $location) {
         var vm = this;
 
-        init();
+        vm.identity = identitySvc;
 
+        console.log(vm.identity);
         vm.logout = function(){
           authSvc.logout().then(function(){
-            vm.identity = undefined;
             notifier.notify("You've succesfully signed out!", "success");
             $location.path('/login');
           });
         }
-
-        // vm.isLogged = function(){
-        //   if(identitySvc.currentUser != null && identitySvc.isAuthenticated()){
-        //     vm.identity = identitySvc;
-        //     return true;
-        //   }
-        //   return false;
-        //   }
-
-          function init(){
-            vm.identity = identitySvc;
-            vm.isLogged = identitySvc.currentUser != null;
-          }
     }
 })();
