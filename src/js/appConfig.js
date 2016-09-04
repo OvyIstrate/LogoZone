@@ -2,7 +2,7 @@
     'use strict';
 
     var app = angular
-        .module('app', ['ngMaterial', 'ngRoute']);
+        .module('app', ['ngMaterial', 'ngRoute', 'ngResource']);
 
     app.config(routeConfig);
 
@@ -43,14 +43,18 @@
 
     app.run(authConfig)
 
-    authConfig.$inject = ['$rootScope', 'userSvc', '$location'];
+    authConfig.$inject = ['$rootScope', '$location', 'identitySvc'];
 
-    function authConfig($rootScope, userSvc, $location){
+    function authConfig($rootScope, $location, identitySvc){
       $rootScope.$on('$routeChangeStart', function(){
-        if(userSvc.getCurrentUser())
-          $location.path('/');
-        else
-          $location.path('/login');
+        identitySvc.getCurrentUser().then(function(data){
+          if(data || identitySvc.isAuthenticated()){
+            identitySvc.currentUser = data;
+            $location.path('/');
+          }
+          else
+            $location.path('/login');
+        });
       });
     }
 

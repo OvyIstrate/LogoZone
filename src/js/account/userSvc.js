@@ -4,20 +4,15 @@ angular
   .module('app')
   .factory('userSvc', userSvc);
 
-  userSvc.$inject = ['$http'];
+userSvc.$inject = ['$resource'];
 
-function userSvc($http) {
+function userSvc($resource) {
+  
+  var UserResource = $resource('/api/users/:id', {_id: "@id"});
 
-  this.getCurrentUser = getCurrentUser;
-  this.currentUser = undefined;
-
-  function getCurrentUser() {
-      $http.get('/user').then(function(response){
-        this.currentUser = response.data;
-        console.log(this.currentUser);
-
-      });
+  UserResource.prototype.isAdmin = function(){
+    return this.roles && this.roles.indexOf('admin') > -1;
   }
 
-  return this;
+  return UserResource;
 }

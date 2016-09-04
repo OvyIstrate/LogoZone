@@ -4,22 +4,22 @@ angular
   .module('app')
   .factory('authSvc', authSvc);
 
-  authSvc.$inject = ['$q', '$http', 'identitySvc'];
+  authSvc.$inject = ['$q', '$http', 'identitySvc', 'userSvc'];
 
-function authSvc($q, $http, identitySvc) {
+function authSvc($q, $http, identitySvc, userSvc) {
   var service = {
 
     authenticateUser: function(username, password){
       var defered = $q.defer();
       $http.post('/login', {username: username, password:password}).then(function(response){
         if(response.data.success){
-          identitySvc.currentUser = response.data.user;
+          var user = new userSvc();
+          angular.extend(user, response.data.user);
+          identitySvc.currentUser = user;
           defered.resolve(true);
         }
         else
-        {
           defered.resolve(false);
-        }
     });
     return defered.promise;
   },

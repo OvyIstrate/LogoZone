@@ -22,8 +22,10 @@
               $location.path('/');
             }
             else
+            {
               notifier.notify('Username/Password combination incorrect',"error");
               vm.isNotAuthenticated = true;
+            }
           });
         }
 
