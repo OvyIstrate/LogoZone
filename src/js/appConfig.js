@@ -57,12 +57,12 @@
 
     app.run(authConfig)
 
-    authConfig.$inject = ['$rootScope', '$location', 'identitySvc'];
+    authConfig.$inject = ['$rootScope', '$location', 'authSvc', 'identitySvc'];
 
-    function authConfig($rootScope, $location, identitySvc) {
+    function authConfig($rootScope, $location, authSvc, identitySvc) {
         $rootScope.$on('$routeChangeStart', function(event, next, current) {
 
-            identitySvc.getCurrentUser().then(function(data) {
+            authSvc.getCurrentUser().then(function(data) {
                 //DEV_ENVIRONMENT
                 // data = getUserForDevelopmentEnvironment();
                 //DEV_ENVIRONMENT

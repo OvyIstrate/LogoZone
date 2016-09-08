@@ -6,6 +6,8 @@ var app = express();
 
 var config = require('./server/config/config')[env];
 
+console.log(config.description);
+
 require('./server/config/express')(app, config);
 
 require('./server/config/mongoose')(config);

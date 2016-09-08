@@ -19,11 +19,11 @@
 </head>
 
 <body ng-controller='navCtrl as vm'>
-    <nav class="navbar navbar-default" ng-if='vm.identity.currentUser'>
+  <div class="container">
+    <nav class="navbar navbar-default" ng-if='vm.identity.isAuthenticated()'>
         <ul class="nav navbar-nav">
             <li role="presentation"><a href="#home">Home</a></li>
             <li role="presentation"><a href="#about">About</a></li>
-
         </ul>
         <ul class="nav navbar-nav pull-right">
             <li class="dropdown right" role="presentation">
@@ -38,8 +38,8 @@
                     <li>
                         <a href="#profile"> Profile </a>
                     </li>
+                    <!-- TODO-Fix Admin Issue on the client -->
                     <li ng-if='vm.identity.currentUser.isAdmin()'>
-                      {{vm.identity.currentUser.isAdmin()}}
                         <a href="#admin"> User Admin </a>
                     </li>
                 </ul>
@@ -63,12 +63,13 @@
         </ul>
     </nav>
 
-    <section class=" centered" ng-view ng-cloak>
+    <section ng-view ng-cloak>
     </section>
-
-    <footer class='text-center' ng-if='vm.identity.currentUser'>
+    {{vm.identity.isAuthentiticated()}}
+    <footer class='text-center' ng-if='vm.identity.isAuthenticated()'>
         <small>&copy; 2016 LogoZone Inc.</small>
     </footer>
+  </div>
 
     <!-- bower:js -->
     <script src="/lib/jquery/dist/jquery.js"></script>
@@ -93,9 +94,10 @@
     <script src="/js/common/notifier.js"></script>
     <script src="/js/directives/fileRead.js"></script>
     <script src="/js/directives/logoElement.js"></script>
-    <script src="/js/internal/adminCtrl.js"></script>
-    <script src="/js/internal/profileCtrl.js"></script>
     <script src="/js/main/mainCtrl.js"></script>
+    <script src="/js/internal/adminCtrl.js"></script>
+    <script src="/js/internal/adminSvc.js"></script>
+    <script src="/js/internal/profileCtrl.js"></script>
     <!-- endinject -->
 </body>
 

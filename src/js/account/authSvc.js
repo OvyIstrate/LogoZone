@@ -22,7 +22,8 @@ function authSvc($q, $http, identitySvc, userSvc) {
           defered.resolve(false);
     });
     return defered.promise;
-  },
+    },
+
     logout: function() {
       var defered = $q.defer();
       $http.post('/logout', {logout:true}).then(function(){
@@ -32,6 +33,23 @@ function authSvc($q, $http, identitySvc, userSvc) {
 
       return defered.promise;
     },
+
+    getCurrentUser: function(){
+      var currentUser;
+      var defered = $q.defer();
+      $http.get('/user').then(function(response){
+        if(response.data !== "")
+        {
+          var user = new userSvc();
+          angular.extend(user, response.data);
+          identitySvc.currentUser = user;
+          defered.resolve(currentUser);
+        }
+        else
+          defered.resolve(response.data)
+      });
+      return defered.promise;
+    }
   }
 
   return service;

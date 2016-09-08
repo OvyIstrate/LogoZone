@@ -13,7 +13,8 @@
 
         vm.identity = identitySvc;
 
-        console.log(vm.identity);
+        console.log(vm.identity.isAuthenticated());
+
         vm.logout = function(){
           authSvc.logout().then(function(){
             notifier.notify("You've succesfully signed out!", "success");

@@ -1,3 +1,14 @@
 <h2>
   Admin Page for {{vm.identity.currentUser.firstname}}, {{vm.identity.currentUser.lastname}}
 </h2>
+
+<div class="form-group">
+  <span> Current Users in the system:</span>
+  <ul>
+      <li ng-repeat="user in vm.users">
+        <span>{{user.firstname}}</span>
+        <span>{{user.lastname}}</span>
+        <span>{{user.username}}</span>
+      </li>
+  </ul>
+</div>

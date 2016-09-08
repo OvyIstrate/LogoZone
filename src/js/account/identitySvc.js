@@ -3,30 +3,21 @@
 angular.module('app')
   .factory('identitySvc', identitySvc);
 
-  identitySvc.$inject = ['$window', '$http', '$q']
+  identitySvc.$inject = ['$window', '$http', '$q', 'userSvc']
 
-function identitySvc($window, $http, $q) {
-
-  var callCount = 0;
-
-  var currentUser;
-  if(!!$window.bootstrappedUser)
-    currentUser = !!$window.bootstrappedUser;
+function identitySvc($window, $http, $q, userSvc) {
 
   var service = {
     currentUser : currentUser,
     isAuthenticated : function(){
       return !!this.currentUser;
     },
-    getCurrentUser: function(){
-      var defered = $q.defer();
-      $http.get('/user').then(function(response){
-        currentUser = response.data;
-        defered.resolve(currentUser);
-
-      });
-      return defered.promise;
+    isAuthorized: function(role){
+      return !!this.currentUser && currentUser.roles.indexOf(role) > -1;
     }
   };
+  if(!!$window.bootstrappedUser)
+    currentUser = !!$window.bootstrappedUser;
+
   return service;
 }
