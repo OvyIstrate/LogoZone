@@ -7,13 +7,15 @@ angular.module('app')
 
 function identitySvc($window, $http, $q, userSvc) {
 
+  var currentUser;
+
   var service = {
     currentUser : currentUser,
     isAuthenticated : function(){
       return !!this.currentUser;
     },
     isAuthorized: function(role){
-      return !!this.currentUser && currentUser.roles.indexOf(role) > -1;
+      return !!this.currentUser && this.currentUser.roles.indexOf(role) > -1;
     }
   };
   if(!!$window.bootstrappedUser)

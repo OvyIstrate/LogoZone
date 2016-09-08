@@ -6,6 +6,14 @@
 
     app.config(routeConfig);
 
+    var routeRoleChecks = {
+      admin: {
+        auth: function(authSvc) {
+          return authSvc.authorizeCurrentUserForRoute('admin');
+        }
+      }
+    }
+
     routeConfig.$inject = ['$routeProvider'];
 
     function routeConfig($routeProvider) {
@@ -23,7 +31,8 @@
             .when('/admin', {
               templateUrl:'/internal/admin.html',
               controller:'adminCtrl',
-              controllerAs:'vm'
+              controllerAs:'vm',
+              resolve: routeRoleChecks.admin
             })
             .when('/profile', {
               templateUrl:'/internal/profile.html',
@@ -75,6 +84,11 @@
                     $location.path('/login');
             });
         });
+
+        $rootScope.$on('$routeChangeError', function(evt, current, previeous, rejection){
+          if(rejection === 'not authorized')
+            $location.path('/');
+        })
     }
 
     function getUserForDevelopmentEnvironment() {

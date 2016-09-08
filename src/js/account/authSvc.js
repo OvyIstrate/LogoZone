@@ -49,6 +49,12 @@ function authSvc($q, $http, identitySvc, userSvc) {
           defered.resolve(response.data)
       });
       return defered.promise;
+    },
+
+    authorizeCurrentUserForRoute: function(role){
+      if(identitySvc.isAuthorized(role))
+        return true;
+      return $q.reject('not authorized');
     }
   }
 
