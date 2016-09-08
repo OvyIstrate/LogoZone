@@ -13,7 +13,6 @@
         }
       }
     }
-
     routeConfig.$inject = ['$routeProvider'];
 
     function routeConfig($routeProvider) {
