@@ -1,14 +1,15 @@
 var auth = require('./auth'),
+    users = require('../controllers/users'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');
 
 module.exports = function(app) {
 
-    app.get('/api/users', auth.requiresApiLogin, function(req, res){
-        User.find({}).exec(function(err,collection){
-          res.send(collection);
-        });
-    });
+    app.get('/api/users', auth.requiresApiLogin, users.getUsers);
+
+    app.post('/api/users', users.createUser);
+    
+    app.put('/api/users', users.updateUser);
 
     app.post('/login', auth.authenticate);
 

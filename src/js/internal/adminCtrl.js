@@ -22,7 +22,7 @@ function adminCtrl(identitySvc, adminSvc, notifier) {
   }
 
   function onUserGetError(err){
-    notifier.notify(err,"error");
+    notifier.error(err.toString());
   }
 
 }

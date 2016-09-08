@@ -548,7 +548,6 @@ label {
     font-size: 13px;
     font-weight: 500;
     line-height: 32px;
-    text-transform: uppercase;
 }
 
 .label + label {
@@ -628,7 +627,7 @@ label {
     display: none;
 }
 
-.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked:hover::before, 
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked:hover::before,
 .ui-select-multiple.ui-select-bootstrap .ui-select-match-item.btn.select-locked:hover::after {
     display: block;
 }

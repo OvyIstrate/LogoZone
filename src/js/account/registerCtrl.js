@@ -1,22 +1,37 @@
 'use strict';
 
 angular
-  .module('app')
-  .controller('registerCtrl', registerCtrl);
+    .module('app')
+    .controller('registerCtrl', registerCtrl);
 
-function registerCtrl() {
-  var vm = this;
+    registerCtrl.$inject = ['$timeout', '$location', 'authSvc', 'notifier']
 
-  vm.newUser = {
-    firstname: undefined,
-    lastname:undefined,
-    email:undefined,
-    username:undefined,
-    password:undefined,
-    confirm:undefined
-  };
+function registerCtrl($timeout, $location, authSvc, notifier) {
+    var vm = this;
+    var confirm_input = angular.element(document.querySelector('#confirm_password'));
 
-  vm.register = function(){
+    vm.register = function() {
+        if (vm.password === vm.confirm) {
+            var newUser = {
+                username: vm.username,
+                email: vm.email,
+                firstname: vm.firstname,
+                lastname: vm.lastname,
+                password: vm.password
+            };
 
-  }
+            authSvc.createUser(newUser).then(function(){
+              notifier.notify("User account created!");
+              $location.path('/');
+            }, function(reason){
+               notifier.error(reason);
+            });
+        }
+        else {
+          confirm_input.context.setCustomValidity("Passwords Don't Match");
+          $timeout(function () {
+            confirm_input.context.setCustomValidity('');
+          }, 5000);
+        }
+    }
 }

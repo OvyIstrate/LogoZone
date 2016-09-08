@@ -23,7 +23,7 @@
             }
             else
             {
-              notifier.notify('Username/Password combination incorrect',"error");
+              notifier.error('Username/Password combination incorrect',"error");
               vm.isNotAuthenticated = true;
             }
           });

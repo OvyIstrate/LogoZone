@@ -454,7 +454,7 @@ pre {
     font-family: 'Roboto', sans-serif;
 }
 
-.control-label {
+/*.control-label {
     float: right;
     line-height: 33px;
     color: #fff;
@@ -466,7 +466,7 @@ pre {
     .control-label a:hover {
         cursor: pointer;
         color: #fff;
-    }
+    }*/
 
 .glyphicon-log-out {
     margin: 0 5px 0 15px;
