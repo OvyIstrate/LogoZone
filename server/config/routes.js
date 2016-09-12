@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.get('/api/users', auth.requiresApiLogin, users.getUsers);
 
     app.post('/api/users', users.createUser);
-    
+
     app.put('/api/users', users.updateUser);
 
     app.post('/login', auth.authenticate);
@@ -20,6 +20,10 @@ module.exports = function(app) {
 
     app.get('/user', function(req, res){
       res.send(req.user);
+    })
+
+    app.all('/api/*', function(req, res){
+      res.send(404);
     })
 
     app.get('*', function(req, res) {

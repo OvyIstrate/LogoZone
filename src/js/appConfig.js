@@ -33,6 +33,12 @@
               controllerAs:'vm',
               resolve: routeRoleChecks.admin
             })
+            .when('/admin/user/:id', {
+              templateUrl:'/internal/admin-user-view.html',
+              controller:'adminUserCtrl',
+              controllerAs:'vm',
+              resolve:routeRoleChecks.admin
+            })
             .when('/profile', {
               templateUrl:'/internal/profile.html',
               controller:'profileCtrl',
@@ -69,11 +75,13 @@
 
     function authConfig($rootScope, $location, authSvc, identitySvc) {
         $rootScope.$on('$routeChangeStart', function(event, next, current) {
-
+          if(!identitySvc.currentUser){
             authSvc.getCurrentUser().then(function(data) {
+
                 //DEV_ENVIRONMENT
                 // data = getUserForDevelopmentEnvironment();
                 //DEV_ENVIRONMENT
+                
                 if (data || identitySvc.isAuthenticated()) {
                     if (identitySvc.currentUser === undefined)
                         identitySvc.currentUser = data;
@@ -82,6 +90,7 @@
                 else
                     $location.path('/login');
             });
+          }
         });
 
         $rootScope.$on('$routeChangeError', function(evt, current, previeous, rejection){

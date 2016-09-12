@@ -3,9 +3,9 @@
 angular.module('app')
   .factory('identitySvc', identitySvc);
 
-  identitySvc.$inject = ['$window', '$http', '$q', 'userSvc']
+  identitySvc.$inject = ['$window', '$http', '$q']
 
-function identitySvc($window, $http, $q, userSvc) {
+function identitySvc($window, $http, $q) {
 
   var currentUser;
 

@@ -4,25 +4,9 @@ angular
   .module('app')
   .controller('adminCtrl', adminCtrl);
 
-  adminCtrl.$inject = ['identitySvc', 'adminSvc', 'notifier'];
+  adminCtrl.$inject = ['identitySvc', 'userCachedSvc'];
 
-function adminCtrl(identitySvc, adminSvc, notifier) {
+function adminCtrl(identitySvc, userCachedSvc) {
   var vm = this;
-  vm.users = [];
-  activate();
-
-  function activate() {
-    vm.identity = identitySvc;
-
-    adminSvc.getUsers().then(onUserGetSuccess, onUserGetError);
-  }
-
-  function onUserGetSuccess(data){
-    vm.users = data;
-  }
-
-  function onUserGetError(err){
-    notifier.error(err.toString());
-  }
-
+  vm.users = userCachedSvc.query();
 }

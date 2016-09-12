@@ -4,6 +4,7 @@ var express = require('express'),
 
 
 module.exports = function(config) {
+  console.log("Connecting to the DB from the " + config.description); 
   mongoose.connect(config.db);
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection errror...'));
