@@ -1,43 +1,28 @@
 var mongoose = require('mongoose'),
-    encryption = require('../utilities/encryption');
+    typeModel = mongoose.model('Type'),
+    type = require('../models/Type');
 
 var spotSchema = mongoose.Schema({
     number: {type:Number, required: '{PATH} is required!', unique:true},
     image: {type:Buffer},
     contract: {type:contractSchema, unique:true},
-    type: typeSchema,
+    type: {type: typeModel, required: '{PATH} is required'},
     isAvailable:{type: Boolean, default:true},
-    salt: {type:String, required: '{PATH} is required!'},
-    hashed_pwd: {type:String, required: '{PATH} is required!'},
-    roles: [String]
 });
 
-userSchema.methods = {
-    authenticate: function(passwordToMatch) {
-        return encryption.hashPwd(this.salt, passwordToMatch) === this.hashed_pwd;
-    },
-    hasRole: function(role){
-      return this.roles.indexOf(role) > -1;
-    }
-}
-
-var User = mongoose.model('User', userSchema);
+var Spot = mongoose.model('Spot', spotSchema);
 
 function createDefaultUsers() {
-    User.find({}).exec(function(err, collection) {
-        if (collection.length === 0) {
-            var salt, hash;
+    type.createTypes();
 
-            salt = encryption.createSalt();
-            hash = encryption.hashPwd(salt, 'john');
-            User.create({
-                firstname: 'John',
-                lastname: 'Doe',
-                email: 'john.doe@tstmail.com',
-                username: 'john.doe',
-                salt: salt,
-                hashed_pwd: hash,
-                roles: ['admin']
+    Spot.find({}).exec(function(err, collection) {
+        if (collection.length === 0) {
+
+            Spot.create({
+                number: collection.length,
+                // image: 'Doe',
+                // contract: 'john.doe@tstmail.com',
+                type: 'john.doe',
             });
 
             salt = encryption.createSalt();
