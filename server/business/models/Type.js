@@ -28,3 +28,9 @@ exports.createTypes = function()
     }
   });
 }
+
+exports.getTypes = function(){
+  Type.find().exec(function(err,collection){
+    return collection;
+  })
+}

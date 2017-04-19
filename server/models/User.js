@@ -12,6 +12,8 @@ var userSchema = mongoose.Schema({
     },
     salt: {type:String, required: '{PATH} is required!'},
     hashed_pwd: {type:String, required: '{PATH} is required!'},
+    createdOn: {type:Date, default:Date.now},
+    profile: profileSchema,
     roles: [String]
 });
 
