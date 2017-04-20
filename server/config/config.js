@@ -14,5 +14,11 @@ module.exports = {
     description:'Production Configuration',
     db:'mongodb://OIstrate:logozoneadmin@ds145395.mlab.com:45395/logozonedb',
     port: process.env.PORT || 80
+  },
+  test:{
+    rootPath: rootPath,
+    description: 'Testing Configuration',
+    db: 'mongodb://localhost/logozoneDb_test',
+    port: process.env.PORT || 3030
   }
 }

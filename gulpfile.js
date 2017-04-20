@@ -1,7 +1,10 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jade = require('gulp-jade');
+var gulpMocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
+var supertests = require('supertest');
+var env = require('gulp-env');
 var jsFiles = ['*.js', 'src/**/*.js'];
 
 gulp.task('style', function () {
@@ -49,4 +52,10 @@ gulp.task('serve', ['style', 'inject'],  function(){
       .on('restart', function(ev) {
         console.log('Restarting...');
       });
+});
+
+gulp.task('test', function(){
+    env({vars: {ENV:'test'}});
+    gulp.src('tests/*.js', {read:false})
+        .pipe(gulpMocha({reporter:'nyan'}));
 });

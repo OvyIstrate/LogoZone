@@ -1,4 +1,4 @@
-describe('userSvc', function(){
+describe('User Functionality Tests', function(){
   beforeEach(module('app'));
 
   describe('isAdmin', function(){
