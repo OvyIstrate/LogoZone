@@ -13,6 +13,8 @@
 
         vm.identity = identitySvc;
 
+        vm.currentYear = new Date().getFullYear();
+
         console.log(vm.identity.isAuthenticated());
 
         vm.logout = function(){

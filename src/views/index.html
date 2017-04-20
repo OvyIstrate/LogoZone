@@ -67,7 +67,7 @@
     <section ng-view ng-cloak>
     </section>
     <footer class='text-center' ng-if='vm.identity.isAuthenticated()'>
-        <small>&copy; 2016 LogoZone Inc.</small>
+        <small>&copy; {{vm.currentYear}} LogoZone Inc.</small>
     </footer>
   </div>
 
@@ -86,20 +86,19 @@
     <!-- endbower -->
     <!-- inject:js -->
     <script src="/js/appConfig.js"></script>
-    <script src="/js/account/authCtrl.js"></script>
-    <script src="/js/account/authSvc.js"></script>
-    <script src="/js/account/identitySvc.js"></script>
-    <script src="/js/account/registerCtrl.js"></script>
-    <script src="/js/account/userCachedSvc.js"></script>
-    <script src="/js/account/userSvc.js"></script>
-    <script src="/js/common/navCtrl.js"></script>
+    <script src="/js/account/auth-controller.js"></script>
+    <script src="/js/account/auth-service.js"></script>
+    <script src="/js/account/identity-service.js"></script>
+    <script src="/js/account/register-controller.js"></script>
+    <script src="/js/account/user-cache-service.js"></script>
+    <script src="/js/account/user-service.js"></script>
+    <script src="/js/common/navigation-controller.js"></script>
     <script src="/js/common/notifier.js"></script>
-    <script src="/js/directives/fileRead.js"></script>
-    <script src="/js/directives/logoElement.js"></script>
-    <script src="/js/main/mainCtrl.js"></script>
-    <script src="/js/internal/adminCtrl.js"></script>
-    <script src="/js/internal/adminUserCtrl.js"></script>
-    <script src="/js/internal/profileCtrl.js"></script>
+    <script src="/js/directives/logo-element.component.js"></script>
+    <script src="/js/internal/admin-controller.js"></script>
+    <script src="/js/internal/admin-user-controller.js"></script>
+    <script src="/js/internal/profile-controller.js"></script>
+    <script src="/js/main/main-controller.js"></script>
     <!-- endinject -->
 </body>
 

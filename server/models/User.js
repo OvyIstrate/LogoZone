@@ -1,7 +1,9 @@
 var mongoose = require('mongoose'),
-    encryption = require('../utilities/encryption');
+    encryption = require('../utilities/encryption'),
+    Profile = require('../models/Profile');
 
-var userSchema = mongoose.Schema({
+var Schema = mongoose.Schema
+var userSchema = new Schema({
     firstname: {type:String, required: '{PATH} is required!'},
     lastname: {type:String, required: '{PATH} is required!'},
     email: {type:String, required: '{PATH} is required!'},
@@ -13,7 +15,7 @@ var userSchema = mongoose.Schema({
     salt: {type:String, required: '{PATH} is required!'},
     hashed_pwd: {type:String, required: '{PATH} is required!'},
     createdOn: {type:Date, default:Date.now},
-    profile: profileSchema,
+    profile: Profile.schema,
     roles: [String]
 });
 
@@ -42,7 +44,11 @@ function createDefaultUsers() {
                 username: 'john.doe',
                 salt: salt,
                 hashed_pwd: hash,
-                roles: ['admin']
+                roles: ['admin'],
+                profile:{
+                    address: 'La mine acasuca',
+                    phone:'000-222-3335'
+                }
             });
 
             salt = encryption.createSalt();

@@ -1,6 +1,5 @@
 <div class="container">
     <div class="well">
-
         <form name="registerForm" class="form-horizontal">
             <fieldset>
                 <legend>User Profile</legend>
@@ -26,16 +25,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="username">Username</label>
+                    <label class="col-md-2 control-label" for="lastname">Address</label>
                     <div class="col-md-10">
-                        <input class="form-control" type="text" name="username" placeholder="Username" ng-model='vm.identity.currentUser.username' required="required">
+                        <input class="form-control" type="text" name="lastname" placeholder="Lastname" ng-model='vm.identity.currentUser.profile.address' required="required">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="password">Password</label>
+                    <label class="col-md-2 control-label" for="email">Phone</label>
                     <div class="col-md-10">
-                        <input class="form-control" type="password" name="password" placeholder="Password" ng-model='vm.password'>
+                        <input class="form-control" type="email" name="email" placeholder="Email" ng-model='vm.identity.currentUser.profile.phone' required="required">
                     </div>
                 </div>
 

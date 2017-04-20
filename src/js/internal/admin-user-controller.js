@@ -15,11 +15,4 @@ angular
     userCachedSvc.query().$promise.then(function(collection){
     vm.hasRoles = vm.user.roles.length > 0;
   });
-
-  vm.setRole(){
-    var
-
-    //TODO HERE [SOME WORK LEFT ON THIS PART]
-  }
-
 }
