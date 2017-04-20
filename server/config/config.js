@@ -1,5 +1,4 @@
 var path = require('path');
-// console.log(path);
 var rootPath = path.normalize(__dirname + '/../../');
 console.log(rootPath + "\src\\views");
 

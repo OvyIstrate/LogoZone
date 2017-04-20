@@ -12,7 +12,7 @@
 
         var logoElement = {
             restrict: 'E',
-            templateUrl: 'logoElement.html',
+            templateUrl: 'logo-element.html',
             scope: {},
             link: linkFunc,
             controller: logoElementCtrl,

@@ -7,6 +7,7 @@ exports.getUsers = function(req, res) {
     });
 }
 
+//USER CREATE METHOD
 exports.createUser = function(req, res, next) {
     var userData = req.body;
     userData.username = userData.username.toLowerCase();
@@ -29,6 +30,7 @@ exports.createUser = function(req, res, next) {
     });
 }
 
+//USER UPDATE METHOD
 exports.updateUser = function(req, res){
   var userData = req.body;
   console.log(req.user);

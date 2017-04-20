@@ -6,6 +6,9 @@ var auth = require('./auth'),
 
 module.exports = function(app) {
 
+    // var userRoute = express.Router();
+    //   userRoute.route('/Users')
+
     app.get('/api/users', auth.requiresApiLogin, users.getUsers);
 
     app.post('/api/users', users.createUser);
@@ -20,6 +23,7 @@ module.exports = function(app) {
     });
 
     app.get('/user', function(req, res){
+      console.log('wtf')
       res.send(req.user);
     })
 
